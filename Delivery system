@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define BASE_DELIVERY_COST 5.0
+#define ADDITIONAL_COST_PER_KM 1.5
+#define ESTIMATED_TIME_PER_KM 0.5
+
+int main() {
+    char name[50];
+    char address[100];
+    char phone_number[15];
+    float distance;
+    float delivery_cost;
+    float estimated_time;
+	int tracking_number;
+         int choice;
+	
+        printf("\nWelcome to the TUKTUK-MTAANI Delivery Company!\n");
+        printf("1. Order details\n");
+        printf("2. Track Order\n");
+        printf("0. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+		
+		
+        switch (choice) {
+            case 1:
+                printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    printf("Enter your address: ");
+    fgets(address, sizeof(address), stdin);
+    printf("Enter your phone number: ");
+    fgets(phone_number, sizeof(phone_number), stdin);
+    printf("Enter the distance (in km) of delivery: ");
+    scanf("%f", &distance);
+	
+    delivery_cost = BASE_DELIVERY_COST + (distance * ADDITIONAL_COST_PER_KM);
+
+    estimated_time = distance * ESTIMATED_TIME_PER_KM;
+
+    printf("\n\nOrder Details:\n");
+    printf("Name: %s", name);
+    printf("Address: %s", address);
+    printf("Phone Number: %s", phone_number);
+    printf("Distance: %.2f km\n", distance);
+    printf("Delivery Cost: $%.2f\n", delivery_cost);
+    printf("Estimated Delivery Time: %.1f hours\n", estimated_time);
+ 
+                 break;
+            case 2:
+                printf("Enter tracking_number:");
+				scanf("%d", &tracking_number);
+				if( tracking_number<10)
+				{printf ("product not available!");
+			      }
+				else 
+				{printf("product availabe!");
+			   }
+		
+                break;
+            case 0:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice!\n");
+                break;
+		}		
+    
+    return 0;
+
+}
